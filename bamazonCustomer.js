@@ -1,5 +1,6 @@
 var mysql = require("mysql");
 var inquirer = require("inquirer");
+var Table = require("cli-table");
 
 var connection = mysql.createConnection({
   host: "localhost",
@@ -17,26 +18,24 @@ var connection = mysql.createConnection({
 
 connection.connect(function(err) {
     if (err) throw err;
-    idSearch();
+    console.log("connected as id " + connection.threadId);
 });
   
-function idSearch() {
-   inquirer 
-    .prompt ({
-        name: "shopping",
-        type: "list",
-        message: "What would you like to buy?",
-        choices: ["yellow 14k studs",
-            "cameo ring",
-            "yellow peplum",
-            "pink tunic",
-            "bell bottom jean",
-            "graphic tee",
-            "cargo shorts", 
-            "blue pinstripe button up",
-            "fushcia circle skirt ",
-            "exit"
-        ]
-    })
-    
+var showItems = function (){
+    var query = "Select * FROM items";
+	connection.query(query, function(err, res){
+		if(err) throw err;
+		var showTable = new Table ({
+			head: ["Item ID", "Product Name", "Catergory", "Price", "Quantity"],
+			colWidths: [10,30,25,10,14]
+		});
+		for(var i = 0; i < res.length; i++){
+			showTable.push(
+				[res[i].item_id,res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity]
+				);
+		}
+		console.log(showTable.toString());
+		// purchasePrompt();
+	});
 }
+showItems()
