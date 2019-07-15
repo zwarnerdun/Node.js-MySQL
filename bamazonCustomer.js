@@ -12,7 +12,7 @@ var connection = mysql.createConnection({
   user: "root",
 
   // Your password
-  password: "Elijahantoine1!",
+  password: "",
   database: "bamazon"
 });
 
@@ -69,36 +69,13 @@ function purchaseOrder(ID, itemAmount){
 			console.log("Great news your order is in stock!");
 			console.log("Your total cost for " + itemAmount + " " +res[0].product_name + " is" + " $" + totalCost + ". Thank you!");
 
-			// connection.query("UPDATE items SET stock_quantity = stock_quantity - " + itemAmount + "WHERE ? " + ID);
+			
         } 
-        // else{
-		// 	console.log("Insufficient quantity, sorry we do not have enough " + res[0].product_name + "to complete your order.");
-		// };
-        // showItems();
-        updateOrder()
+        else{
+			connection.query("UPDATE items SET stock_quantity = stock_quantity - " + itemAmount + "WHERE item_id " + ID);
+			console.log("Insufficient quantity, sorry we do not have enough " + res[0].product_name + " to complete your order.");
+		};
+        showItems();
+        purchaseOrder();
 	});
 };
-
-function updateOrder(res) {
-    // if (err) throw (err);
-    console.log("Insufficient quantity, sorry we do not have enough " + res[0].product_name + "to complete your order.");
-    var query = connection.query(
-        console.log(query.sql)
-    //   "UPDATE items SET ? WHERE ?",
-    //   [
-    //     {
-    //       stock_quantity: []
-    //     },
-    //     {
-    //       product_name: []
-    //     }
-    // //   ],
-    //   function(err, res) {
-    //     if (err) throw err;
-    //     console.log("sorry we do not have enough " + res[0].product_name + "to complete your order.");
-
-    //   }
-    );
-   
-}
-  
