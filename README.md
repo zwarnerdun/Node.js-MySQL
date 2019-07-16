@@ -25,3 +25,7 @@ Once the customer has placed the order, your application should check if your st
 
 Example 1: Shows the table of the products to pick from. After a product id is picked with a sufficient amount you want, it will calculate your total and let you know that it is in stock. 
 
+![Capture Great news](https://user-images.githubusercontent.com/49568886/61315998-fb6efd00-a7cd-11e9-95f3-2eb6ca9f1b76.PNG)
+
+
+Example 2: Shows the table of the products to pick from. After a product id is picked with an insufficient amount you want, it will notify you that there is not enouh of the product in stock. 
