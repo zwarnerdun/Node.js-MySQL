@@ -1,4 +1,4 @@
-# Node.js-MySQL
+# Node.js-MySQL  https://zwarnerdun.github.io/Node.js-MySQL/
 
 ## Overview
 
@@ -29,3 +29,15 @@ Example 1: Shows the table of the products to pick from. After a product id is p
 
 
 Example 2: Shows the table of the products to pick from. After a product id is picked with an insufficient amount you want, it will notify you that there is not enouh of the product in stock. 
+
+![Capture insufficient quantity](https://user-images.githubusercontent.com/49568886/61315999-fb6efd00-a7cd-11e9-80b3-05ed1456bd4e.PNG)
+
+
+## TECHNOLOGIES USED
+
+* Javascript
+* Nodejs
+* Node packages: MySQL, CLI, and Inquirer
+* JSON packages
+* Git
+* GitHub
