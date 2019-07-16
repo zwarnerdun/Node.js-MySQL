@@ -1,4 +1,6 @@
-# Node.js-MySQL  https://zwarnerdun.github.io/Node.js-MySQL/
+# Node.js-MySQL  
+
+https://zwarnerdun.github.io/Node.js-MySQL/
 
 ## Overview
 
